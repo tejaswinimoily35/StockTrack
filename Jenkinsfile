@@ -3,48 +3,29 @@ pipeline {
 
   stages {
 
-    stage('Checkout Code') {
+    stage('Checkout') {
       steps {
-        echo 'Cloning repository from GitHub...'
         checkout scm
       }
     }
 
-    stage('Environment Check') {
+    stage('Build') {
       steps {
-        echo 'Checking environment (dummy stage)'
-        sh 'node -v || echo "Node not installed, but continuing"'
-        sh 'npm -v || echo "NPM not installed, but continuing"'
+        echo 'Dummy build step – no actual build required'
       }
     }
 
-    stage('Backend Build (Dummy)') {
+    stage('Test') {
       steps {
-        echo 'Backend folder exists, no build required'
-        sh 'ls -l || true'
-        sh 'ls backend || echo "Backend folder present"'
+        echo 'Dummy test step – no tests available'
       }
     }
 
-    stage('Test (Dummy)') {
+    stage('Deploy') {
       steps {
-        echo 'No tests available – dummy test stage passed'
+        echo 'Dummy deployment step completed'
       }
     }
 
-    stage('Deploy (Dummy)') {
-      steps {
-        echo 'Deployment simulated successfully'
-      }
-    }
-  }
-
-  post {
-    success {
-      echo '✅ Jenkins dummy pipeline executed successfully'
-    }
-    failure {
-      echo '❌ Pipeline failed'
-    }
   }
 }
