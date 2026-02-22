@@ -1,31 +1,31 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
+    stages {
 
-    stage('Checkout') {
-      steps {
-        checkout scm
-      }
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Build stage executed (dummy)'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Test stage executed (dummy)'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploy stage executed (dummy)'
+            }
+        }
+
     }
-
-    stage('Build') {
-      steps {
-        echo 'Dummy build step – no actual build required'
-      }
-    }
-
-    stage('Test') {
-      steps {
-        echo 'Dummy test step – no tests available'
-      }
-    }
-
-    stage('Deploy') {
-      steps {
-        echo 'Dummy deployment step completed'
-      }
-    }
-
-  }
 }
